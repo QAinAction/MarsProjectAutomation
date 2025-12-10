@@ -1,0 +1,19 @@
+﻿using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MarsProject.Utilities
+{
+    public class BaseClass
+    {
+        protected readonly IWebDriver driver;
+
+        public BaseClass(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+    }
+}
