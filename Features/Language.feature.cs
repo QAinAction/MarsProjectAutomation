@@ -117,7 +117,7 @@ namespace MarsProject.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Language.feature.ndjson", 10);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Language.feature.ndjson", 11);
         }
         
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("01 Verify whether user with valid credentials is redirected to Profile page")]
@@ -262,15 +262,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("04 Verify whether the user is able to update the language record created")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("04 Verify whether the user is able to update the language record created")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Language")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"English\"", "\"Native/Bilingual\"", "3", null, DisplayName="04 Verify whether the user is able to update the language record created(\"lija251" +
-            "2@gmail.com\",\"123456\",\"English\",\"Native/Bilingual\",3)")]
-        public async global::System.Threading.Tasks.Task _04VerifyWhetherTheUserIsAbleToUpdateTheLanguageRecordCreated(string email_Address, string password, string language, string updatedLanguageLevel, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"English\"", "\"Basic\"", "\"Native/Bilingual\"", "3", null, DisplayName="04 Verify whether the user is able to update the language record created(\"lija251" +
+            "2@gmail.com\",\"123456\",\"English\",\"Basic\",\"Native/Bilingual\",3)")]
+        public async global::System.Threading.Tasks.Task _04VerifyWhetherTheUserIsAbleToUpdateTheLanguageRecordCreated(string email_Address, string password, string language, string languageLevel, string updatedLanguageLevel, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("LanguageLevel", languageLevel);
             argumentsOfScenario.Add("UpdatedLanguageLevel", updatedLanguageLevel);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("04 Verify whether the user is able to update the language record created", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
@@ -296,12 +297,15 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 39
- await testRunner.AndAsync(string.Format("the {0} record should be displayed in the table", language), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language, languageLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 40
- await testRunner.WhenAsync(string.Format("the user clicks on edit icon and updates the field with {0}", updatedLanguageLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.AndAsync(string.Format("the {0} record should be displayed in the table", language), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 41
+ await testRunner.WhenAsync(string.Format("the user clicks on edit icon and updates the field with {0}", updatedLanguageLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 42
  await testRunner.ThenAsync(string.Format("the {0} of the record should get updated successfully", updatedLanguageLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -311,19 +315,22 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("05 Verify whether the validations during add language are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("05 Verify whether the validations during add language are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Language")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "4", null, DisplayName="05 Verify whether the validations during add language are working as expected.(\"l" +
-            "ija2512@gmail.com\",\"123456\",4)")]
-        public async global::System.Threading.Tasks.Task _05VerifyWhetherTheValidationsDuringAddLanguageAreWorkingAsExpected_(string email_Address, string password, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"English\"", "4", null, DisplayName="05 Verify whether the validations during add language are working as expected.(\"l" +
+            "ija2512@gmail.com\",\"123456\",\"English\",4)")]
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Hindi\"", "5", null, DisplayName="05 Verify whether the validations during add language are working as expected.(\"l" +
+            "ija2512@gmail.com\",\"123456\",\"Hindi\",5)")]
+        public async global::System.Threading.Tasks.Task _05VerifyWhetherTheValidationsDuringAddLanguageAreWorkingAsExpected_(string email_Address, string password, string language, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Language", language);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("05 Verify whether the validations during add language are working as expected.", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 48
+#line 49
  this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -333,17 +340,17 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 49
+#line 50
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 50
+#line 51
  await testRunner.WhenAsync(string.Format("the user logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 51
+#line 52
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 52
- await testRunner.AndAsync("verify the Add language validations are working", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 53
+ await testRunner.AndAsync(string.Format("verify adding language {0} validations are working", language), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -352,19 +359,23 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("06 Verify whether the validations during edit language are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("06 Verify whether the validations during edit language are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Language")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "5", null, DisplayName="06 Verify whether the validations during edit language are working as expected.(\"" +
-            "lija2512@gmail.com\",\"123456\",5)")]
-        public async global::System.Threading.Tasks.Task _06VerifyWhetherTheValidationsDuringEditLanguageAreWorkingAsExpected_(string email_Address, string password, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"English\"", "\"Native/Bilingual\"", "\"French\"", "\"Fluent\"", "6", null, DisplayName="06 Verify whether the validations during edit language are working as expected.(\"" +
+            "lija2512@gmail.com\",\"123456\",\"English\",\"Native/Bilingual\",\"French\",\"Fluent\",6)")]
+        public async global::System.Threading.Tasks.Task _06VerifyWhetherTheValidationsDuringEditLanguageAreWorkingAsExpected_(string email_Address, string password, string language1, string languageLevel1, string language2, string languageLevel2, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Language1", language1);
+            argumentsOfScenario.Add("LanguageLevel1", languageLevel1);
+            argumentsOfScenario.Add("Language2", language2);
+            argumentsOfScenario.Add("LanguageLevel2", languageLevel2);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("06 Verify whether the validations during edit language are working as expected.", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 58
+#line 60
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -374,17 +385,23 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 59
+#line 61
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 60
+#line 62
     await testRunner.WhenAsync(string.Format("the user logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 61
+#line 63
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 62
- await testRunner.AndAsync("verify the Edit language validations are working", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 64
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language1, languageLevel1), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 65
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language2, languageLevel2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 66
+ await testRunner.AndAsync(string.Format("verify editing language {0} and {1} validations are working", language1, languageLevel1), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -395,20 +412,29 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("07 Verify whether once all  the four languages added are displayed in the list th" +
             "e Add New button gets disabled")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Language")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "6", null, DisplayName="07 Verify whether once all  the four languages added are displayed in the list th" +
-            "e Add New button gets disabled(\"lija2512@gmail.com\",\"123456\",6)")]
-        public async global::System.Threading.Tasks.Task _07VerifyWhetherOnceAllTheFourLanguagesAddedAreDisplayedInTheListTheAddNewButtonGetsDisabled(string email_Address, string password, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Java\"", "\"Basic\"", "\"Javascript\"", "\"Fluent\"", "\"C#\"", "\"Fluent\"", "\"Python\"", "\"Basic\"", "7", null, DisplayName="07 Verify whether once all  the four languages added are displayed in the list th" +
+            "e Add New button gets disabled(\"lija2512@gmail.com\",\"123456\",\"Java\",\"Basic\",\"Jav" +
+            "ascript\",\"Fluent\",\"C#\",\"Fluent\",\"Python\",\"Basic\",7)")]
+        public async global::System.Threading.Tasks.Task _07VerifyWhetherOnceAllTheFourLanguagesAddedAreDisplayedInTheListTheAddNewButtonGetsDisabled(string email_Address, string password, string language, string languageLevel, string language1, string languageLevel1, string language2, string languageLevel2, string language3, string languageLevel3, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("LanguageLevel", languageLevel);
+            argumentsOfScenario.Add("Language1", language1);
+            argumentsOfScenario.Add("LanguageLevel1", languageLevel1);
+            argumentsOfScenario.Add("Language2", language2);
+            argumentsOfScenario.Add("LanguageLevel2", languageLevel2);
+            argumentsOfScenario.Add("Language3", language3);
+            argumentsOfScenario.Add("LanguageLevel3", languageLevel3);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("07 Verify whether once all  the four languages added are displayed in the list th" +
                     "e Add New button gets disabled", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 68
+#line 74
  this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -418,18 +444,27 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 69
+#line 75
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 70
+#line 76
  await testRunner.WhenAsync(string.Format("the user logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 71
+#line 77
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 72
- await testRunner.WhenAsync("the user clicks on Add New button and creates the last language record after that" +
-                        " the button is disabled", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 78
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language1, languageLevel1), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 79
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language2, languageLevel2), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 80
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language3, languageLevel3), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 81
+ await testRunner.WhenAsync(string.Format("the user clicks on Add New button and creates the last language record with {0} a" +
+                            "nd {1} after that the button is disabled", language, languageLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -440,21 +475,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("08 Verify whether the existing record is deleted on clicking the cross (X) icon a" +
             "nd a message is displayed")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Language")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"French\"", "7", null, DisplayName="08 Verify whether the existing record is deleted on clicking the cross (X) icon a" +
-            "nd a message is displayed(\"lija2512@gmail.com\",\"123456\",\"French\",7)")]
-        public async global::System.Threading.Tasks.Task _08VerifyWhetherTheExistingRecordIsDeletedOnClickingTheCrossXIconAndAMessageIsDisplayed(string email_Address, string password, string language, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"French\"", "\"Beginner\"", "\"French\"", "8", null, DisplayName="08 Verify whether the existing record is deleted on clicking the cross (X) icon a" +
+            "nd a message is displayed(\"lija2512@gmail.com\",\"123456\",\"French\",\"Beginner\",\"Fre" +
+            "nch\",8)")]
+        public async global::System.Threading.Tasks.Task _08VerifyWhetherTheExistingRecordIsDeletedOnClickingTheCrossXIconAndAMessageIsDisplayed(string email_Address, string password, string language, string languageLevel, string language1, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("LanguageLevel", languageLevel);
+            argumentsOfScenario.Add("Language1", language1);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("08 Verify whether the existing record is deleted on clicking the cross (X) icon a" +
                     "nd a message is displayed", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 78
+#line 89
  this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -464,19 +502,22 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 79
+#line 90
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 80
+#line 91
  await testRunner.WhenAsync(string.Format("the user logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 81
+#line 92
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 82
- await testRunner.WhenAsync(string.Format("the user clicks on the cross icon against the {0} record", language), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 93
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button", language, languageLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 83
+#line 94
+ await testRunner.WhenAsync(string.Format("the user clicks on the cross icon against the {0} record", language1), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 95
  await testRunner.ThenAsync(string.Format("the {0} record should be deleted", language), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

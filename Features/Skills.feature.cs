@@ -160,7 +160,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.WhenAsync(string.Format("the user clicks logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 7
- await testRunner.ThenAsync(string.Format("the user should be redirected to the Profile page with Profile name {0}", profile_Name), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync(string.Format("the text {0} should be displayed.", profile_Name), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 8
  await testRunner.AndAsync("click on Skill tab", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
@@ -225,15 +225,16 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("03 Verify whether the user is able to update the skills record created")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("03 Verify whether the user is able to update the skills record created")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Skills")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Automated testing\"", "\"Intermediate\"", "2", null, DisplayName="03 Verify whether the user is able to update the skills record created(\"lija2512@" +
-            "gmail.com\",\"123456\",\"Automated testing\",\"Intermediate\",2)")]
-        public async global::System.Threading.Tasks.Task _03VerifyWhetherTheUserIsAbleToUpdateTheSkillsRecordCreated(string email_Address, string password, string skill, string updatedSkill_Level, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Automated testing\"", "\"Beginner\"", "\"Intermediate\"", "2", null, DisplayName="03 Verify whether the user is able to update the skills record created(\"lija2512@" +
+            "gmail.com\",\"123456\",\"Automated testing\",\"Beginner\",\"Intermediate\",2)")]
+        public async global::System.Threading.Tasks.Task _03VerifyWhetherTheUserIsAbleToUpdateTheSkillsRecordCreated(string email_Address, string password, string skill, string skillLevel, string updatedSkill_Level, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("SkillLevel", skillLevel);
             argumentsOfScenario.Add("UpdatedSkill_Level", updatedSkill_Level);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("03 Verify whether the user is able to update the skills record created", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
@@ -262,13 +263,17 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.ThenAsync("click on Skill tab", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 32
- await testRunner.AndAsync(string.Format("the {0} skill record should be displayed in the table", skill), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.WhenAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button in t" +
+                            "he skills section", skill, skillLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 33
+ await testRunner.ThenAsync(string.Format("the {0} skill record should be displayed in the table", skill), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 34
  await testRunner.ThenAsync(string.Format("the user clicks on the edit icon and updates the skill level{0} and clicks on upd" +
                             "ate button", updatedSkill_Level), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 34
+#line 35
  await testRunner.AndAsync("the <UpdatedSkillLevel> skill level should get updated successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
@@ -278,21 +283,26 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("04 Verify whether the validations during add skills are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("04 Verify whether the validations during add skills are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Skills")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Automated testing\"", "\"Intermediate\"", "3", null, DisplayName="04 Verify whether the validations during add skills are working as expected.(\"lij" +
-            "a2512@gmail.com\",\"123456\",\"Automated testing\",\"Intermediate\",3)")]
-        public async global::System.Threading.Tasks.Task _04VerifyWhetherTheValidationsDuringAddSkillsAreWorkingAsExpected_(string email_Address, string password, string existing_Skill, string existing_Skilllevel, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Automated testing\"", "\"Intermediate\"", "\"Programming\"", "\"Beginner\"", "\"Automated testing\"", "\"Intermediate\"", "3", null, DisplayName="04 Verify whether the validations during add skills are working as expected.(\"lij" +
+            "a2512@gmail.com\",\"123456\",\"Automated testing\",\"Intermediate\",\"Programming\",\"Begi" +
+            "nner\",\"Automated testing\",\"Intermediate\",3)")]
+        public async global::System.Threading.Tasks.Task _04VerifyWhetherTheValidationsDuringAddSkillsAreWorkingAsExpected_(string email_Address, string password, string skill, string skillLevel, string skill1, string skillLevel1, string existing_Skill, string existing_Skilllevel, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("SkillLevel", skillLevel);
+            argumentsOfScenario.Add("Skill1", skill1);
+            argumentsOfScenario.Add("SkillLevel1", skillLevel1);
             argumentsOfScenario.Add("Existing_Skill", existing_Skill);
             argumentsOfScenario.Add("Existing_skilllevel", existing_Skilllevel);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("04 Verify whether the validations during add skills are working as expected.", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 39
+#line 40
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -302,20 +312,28 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 40
+#line 41
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 41
+#line 42
  await testRunner.WhenAsync(string.Format("the user clicks logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 42
+#line 43
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 43
+#line 44
  await testRunner.AndAsync("click on Skill tab", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 44
- await testRunner.AndAsync(string.Format("verify the Add skill validations and also when entering  {0} and {1} are working", existing_Skill, existing_Skilllevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 45
+ await testRunner.WhenAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button in t" +
+                            "he skills section", skill, skillLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 46
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button in t" +
+                            "he skills section", skill1, skillLevel1), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 47
+ await testRunner.ThenAsync(string.Format("verify the Add skill validations and also when entering  {0} and {1} are working", existing_Skill, existing_Skilllevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -324,19 +342,21 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute("05 Verify whether the validations during edit skills are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("05 Verify whether the validations during edit skills are working as expected.")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Skills")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "4", null, DisplayName="05 Verify whether the validations during edit skills are working as expected.(\"li" +
-            "ja2512@gmail.com\",\"123456\",4)")]
-        public async global::System.Threading.Tasks.Task _05VerifyWhetherTheValidationsDuringEditSkillsAreWorkingAsExpected_(string email_Address, string password, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Programming\"", "\"Expert\"", "4", null, DisplayName="05 Verify whether the validations during edit skills are working as expected.(\"li" +
+            "ja2512@gmail.com\",\"123456\",\"Programming\",\"Expert\",4)")]
+        public async global::System.Threading.Tasks.Task _05VerifyWhetherTheValidationsDuringEditSkillsAreWorkingAsExpected_(string email_Address, string password, string skill, string skillLevel, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
+            argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("SkillLevel", skillLevel);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("05 Verify whether the validations during edit skills are working as expected.", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 50
+#line 53
  this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -346,20 +366,24 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 51
+#line 54
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 52
+#line 55
  await testRunner.WhenAsync(string.Format("the user clicks logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 53
+#line 56
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 54
+#line 57
  await testRunner.AndAsync("click on Skill tab", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 55
- await testRunner.AndAsync("verify the Edit skill validations are working", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 58
+ await testRunner.WhenAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button in t" +
+                            "he skills section", skill, skillLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 59
+    await testRunner.ThenAsync("verify the Edit skill validations are working", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -370,22 +394,25 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("06 Verify whether the existing skill record is deleted on clicking the cross (X) " +
             "icon and a message is displayed")]
         [global::Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Skills")]
-        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Automated testing\"", "5", null, DisplayName="06 Verify whether the existing skill record is deleted on clicking the cross (X) " +
-            "icon and a message is displayed(\"lija2512@gmail.com\",\"123456\",\"Automated testing" +
-            "\",5)")]
-        public async global::System.Threading.Tasks.Task _06VerifyWhetherTheExistingSkillRecordIsDeletedOnClickingTheCrossXIconAndAMessageIsDisplayed(string email_Address, string password, string skill, string @__pickleIndex, string[] exampleTags)
+        [global::Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("\"lija2512@gmail.com\"", "\"123456\"", "\"Programming\"", "\"Beginner\"", "\"Automated testing\"", "\"Expert\"", "5", null, DisplayName="06 Verify whether the existing skill record is deleted on clicking the cross (X) " +
+            "icon and a message is displayed(\"lija2512@gmail.com\",\"123456\",\"Programming\",\"Beg" +
+            "inner\",\"Automated testing\",\"Expert\",5)")]
+        public async global::System.Threading.Tasks.Task _06VerifyWhetherTheExistingSkillRecordIsDeletedOnClickingTheCrossXIconAndAMessageIsDisplayed(string email_Address, string password, string skill, string skillLevel, string skill1, string skillLevel1, string @__pickleIndex, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Email_address", email_Address);
             argumentsOfScenario.Add("Password", password);
             argumentsOfScenario.Add("Skill", skill);
+            argumentsOfScenario.Add("SkillLevel", skillLevel);
+            argumentsOfScenario.Add("Skill1", skill1);
+            argumentsOfScenario.Add("SkillLevel1", skillLevel1);
             string pickleIndex = @__pickleIndex;
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("06 Verify whether the existing skill record is deleted on clicking the cross (X) " +
                     "icon and a message is displayed", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 60
+#line 64
  this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -395,22 +422,30 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 61
+#line 65
  await testRunner.GivenAsync("the Mars Project url is opened", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 62
+#line 66
  await testRunner.WhenAsync(string.Format("the user clicks logs in with valid credentials {0} and {1}", email_Address, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 63
+#line 67
  await testRunner.ThenAsync("the user should be redirected to the Profile page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 64
+#line 68
  await testRunner.AndAsync("click on Skill tab", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 65
- await testRunner.WhenAsync("the user clicks on the cross icon against the <skill> skill record", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 69
+ await testRunner.WhenAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button in t" +
+                            "he skills section", skill1, skillLevel1), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 66
+#line 70
+ await testRunner.AndAsync(string.Format("the user clicks on AddNew button enters {0} and {1} and clicks on Add button in t" +
+                            "he skills section", skill, skillLevel), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 71
+ await testRunner.AndAsync("the user clicks on the cross icon against the <skill> skill record", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 72
  await testRunner.ThenAsync(string.Format("the {0} skill record should be deleted", skill), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }

@@ -24,6 +24,16 @@ namespace MarsProject.Utilities
             wait.Until(ExpectedConditions.ElementIsVisible(element));
         }
 
+        public void Wait(int timeout)
+        {
+            Thread.Sleep(timeout);
+        }
+
+        public void WaitForElementDisappear(By element)
+        {
+            wait.Until(ExpectedConditions.InvisibilityOfElementLocated(element));
+        }
+
       
 
     }

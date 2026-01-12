@@ -36,55 +36,67 @@ Scenario:04 Verify whether the user is able to update the language record create
 	Given the Mars Project url is opened
 	When  the user logs in with valid credentials <Email_address> and <Password>
 	Then the user should be redirected to the Profile page
+	And the user clicks on AddNew button enters <Language> and <LanguageLevel> and clicks on Add button
 	And the <Language> record should be displayed in the table
 	When the user clicks on edit icon and updates the field with <UpdatedLanguageLevel>
 	Then the <UpdatedLanguageLevel> of the record should get updated successfully
 
 Examples:
-	| Email_address        | Password | Language  | UpdatedLanguageLevel |
-	| "lija2512@gmail.com" | "123456" | "English" | "Native/Bilingual"   |
+	| Email_address        | Password | Language  | LanguageLevel | UpdatedLanguageLevel |
+	| "lija2512@gmail.com" | "123456" | "English" | "Basic"       | "Native/Bilingual"   |
 
 
 	Scenario:05 Verify whether the validations during add language are working as expected.
 	Given the Mars Project url is opened
 	When  the user logs in with valid credentials <Email_address> and <Password>
 	Then the user should be redirected to the Profile page
-	And verify the Add language validations are working
+	And verify adding language <Language> validations are working 
 
 Examples:
-	| Email_address        | Password |
-	| "lija2512@gmail.com" | "123456" |
+	| Email_address        | Password | Language  |
+	| "lija2512@gmail.com" | "123456" | "English" |
+	| "lija2512@gmail.com" | "123456" | "Hindi"   |
 
 Scenario:06 Verify whether the validations during edit language are working as expected.
 	Given the Mars Project url is opened
     When  the user logs in with valid credentials <Email_address> and <Password>
 	Then the user should be redirected to the Profile page
-	And verify the Edit language validations are working  
+	And the user clicks on AddNew button enters <Language1> and <LanguageLevel1> and clicks on Add button
+	And the user clicks on AddNew button enters <Language2> and <LanguageLevel2> and clicks on Add button
+	And verify editing language <Language1> and <LanguageLevel1> validations are working  
 
 	Examples:
-	| Email_address        | Password |
-	| "lija2512@gmail.com" | "123456" |
+	| Email_address        | Password | Language1 | LanguageLevel1     | Language2 | LanguageLevel2     |
+	| "lija2512@gmail.com" | "123456" | "English" | "Native/Bilingual" | "French"  | "Fluent"           |
+
+
 
 	Scenario:07 Verify whether once all  the four languages added are displayed in the list the Add New button gets disabled
 	Given the Mars Project url is opened
 	When  the user logs in with valid credentials <Email_address> and <Password>
 	Then the user should be redirected to the Profile page
-	When the user clicks on Add New button and creates the last language record after that the button is disabled
+	And the user clicks on AddNew button enters <Language1> and <LanguageLevel1> and clicks on Add button
+	And the user clicks on AddNew button enters <Language2> and <LanguageLevel2> and clicks on Add button
+	And the user clicks on AddNew button enters <Language3> and <LanguageLevel3> and clicks on Add button
+	When the user clicks on Add New button and creates the last language record with <Language> and <LanguageLevel> after that the button is disabled
 
 	Examples:
-	| Email_address       | Password |
-	|"lija2512@gmail.com"| "123456" |
+	| Email_address        | Password | Language     | LanguageLevel | Language1    | LanguageLevel1 | Language2 | LanguageLevel2 | Language3 | LanguageLevel3 |
+	| "lija2512@gmail.com" | "123456" | "Java"       | "Basic"      | "Javascript" | "Fluent"       | "C#"      | "Fluent"     | "Python"  | "Basic"     |
+	
+
 
 	Scenario:08 Verify whether the existing record is deleted on clicking the cross (X) icon and a message is displayed
 	Given the Mars Project url is opened
 	When  the user logs in with valid credentials <Email_address> and <Password>
 	Then the user should be redirected to the Profile page
-	When the user clicks on the cross icon against the <Language> record
+	And the user clicks on AddNew button enters <Language> and <LanguageLevel> and clicks on Add button
+	When the user clicks on the cross icon against the <Language1> record
 	Then the <Language> record should be deleted
 
 Examples:
-	| Email_address        | Password | Language  |
-	| "lija2512@gmail.com" | "123456" | "French" |
+	| Email_address        | Password | Language | LanguageLevel | Language1 |
+	| "lija2512@gmail.com" | "123456" | "French" | "Beginner"     | "French"  |
 
 
 
